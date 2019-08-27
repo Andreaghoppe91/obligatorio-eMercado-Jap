@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>eMercado - Inicia sesion</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
+<body class="login">
+    <div class="login-caja">
+      <img src="img/logologin.jpg" class="imglogin">
+      <h1>Iniciar sesion</h1>
+      <form action="index.html">
+        <p>Usuario</p>
+        <input type="text" name="usuario" id="usuario" placeholder="Escriba aqui su usario de eMercado" required>
+        <p>Contraseña</p>
+        <input type="password" name="contraseña" placeholder="Escriba aqui su contraseña de eMercado" required>
+        <input type="submit" name="boton" value="Iniciar Sesión" onclick="guardarDatos()"/>
+      </form>
+    </div>
+    <script src="js/localStorage.js"></script> 
+</body>
