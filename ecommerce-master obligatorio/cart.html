@@ -69,22 +69,31 @@
           </div>
         </nav>
     <main role="main">
+        <div class="container mt-5">
+            <div class="text-center p-4">
+                <h2>Carrito</h2>
+                  </div>
+            <dl>
+                <dt>Nombre del articulo en el carrito:</dt>
+                <dd><p id="nombreArticulo"></p></dd>
+
+                <dt>Cantidad:</dt>
+                <dd><p id="cantarticulo"></p></dd>
+
+                <dt>Costo:</dt>
+                <dd><p id="costarticulo"></p>
+                 <dt> Moneda:</dt>
+                  <p id="monedaarticulo"></p></dd>
+
+                <dt>Imagen</dt>
+                <dd>
+                    <div class="row text-center text-lg-left pt-2" id="imgarticulo">
+                    </div>
+                </dd>
+            </dl>
+            </div>
+          </div>
 		<div class="container mt-5">
-			<div class="alert alert-danger" role="alert">
-				<h4 class="alert-heading">¡A trabajar! :)</h4>
-				<p>Esta sección corresponde a: 3era y 4ta. Entrega (Fecha: 20/10/2019 y 24/11/2019)</p>
-				<hr>
-				<p class="mb-0">Fijate en la letra qué debes hacer <a target="_blank" href="Letra.pdf">aquí</a>.</p>
-			</div>
-		</div>
-    </main>
-      <footer class="text-muted">
-        <div class="container">
-            <p>Este sitio forma parte de Programación Aplicada - JAP</p>
-            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-        </div>
-      </footer>
-      <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -148,8 +157,14 @@
               <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
             </div>
           </div>
-        </div>
       </div>
+    </main>
+      <footer class="text-muted">
+        <div class="container">
+            <p>Este sitio forma parte de Programación Aplicada - JAP</p>
+            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+        </div>
+      </footer>
       <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
       <script src="js/vendor/jquery-3.4.1.min.js"></script>
       <script src="js/vendor/bootstrap.bundle.min.js"></script>
