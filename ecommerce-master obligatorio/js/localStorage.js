@@ -1,4 +1,11 @@
 function guardarDatos() {
     localStorage.nombre = document.getElementById("usuario").value;
 }
-document.getElementById("nombre").innerHTML = localStorage.nombre
+
+function mostrarNombre(){
+    document.getElementById("nombre").innerHTML = localStorage.nombre
+}
+
+document.addEventListener("DOMContentLoaded", function(e){
+mostrarNombre();
+    });
