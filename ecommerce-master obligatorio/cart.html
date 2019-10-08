@@ -69,35 +69,39 @@
           </div>
         </nav>
     <main role="main">
+
         <div class="container mt-5">
-            <div class="text-center p-4">
+            <div class="row">
                 <h2>Carrito</h2>
-                  </div>
-            <dl>
-                <dt>Nombre del articulo en el carrito:</dt>
-                <dd><p id="nombreArticulo"></p></dd>
-
-                <dt>Cantidad:</dt>
-                <dd><p id="cantarticulo"></p></dd>
-
-                <dt>Costo:</dt>
-                <dd><p id="costarticulo"></p>
-                 <dt> Moneda:</dt>
-                  <p id="monedaarticulo"></p></dd>
-
-                <dt>Imagen</dt>
-                <dd>
-                    <div class="row text-center text-lg-left pt-2" id="imgarticulo">
-                    </div>
-                </dd>
-            </dl>
             </div>
-          </div>
-		<div class="container mt-5">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Forma de pago</h5>
+            <div class="container-fluid">
+                <div class="row">
+                  <div class="col-xs-3 col-sm-2"><dt>Articulo:</dt></div>
+                  <div class="col-xs-3 col-sm-2"><p id="nombreArticulo"></p></div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-3 col-sm-2"><dt>Cantidad:</dt></div>
+                  <div class="col-xs-3 col-sm-2"><p id="cantarticulo"></p></div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-3 col-sm-2"><dt>Costo:</dt></div>
+                  <div class="col-xs-3 col-sm-2"><p id="costarticulo"></p></div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-3 col-sm-2"><dt> Moneda:</dt></div>
+                  <div class="col-xs-3 col-sm-2"><p id="monedaarticulo"></p></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="bd-placeholder-img card-img-top" src="img/tree1.jpg">
+                    </div>
+              </div>
+    
+          <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Forma de pago</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
