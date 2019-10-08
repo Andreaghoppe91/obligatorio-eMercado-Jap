@@ -26,12 +26,23 @@ function hidePaymentTypeNotSelected(){
 }
 
 function showArticles(articles){
-
+    let contenido = "";
+    for(let i = 0; i < articles.length; i++){
+        let articles = articles[i];
+        contenido += `
+            <td><img src="img/tree1.jpg" width="75px"></td>
+            <td>`+ array.articles.name +`</td>
+            <td>`+ articles.articles.count +`</td>
+            <td>100</td>
+            <td>uyu</td>
+        `
+        document.getElementById("tablaCart").innerHTML = contenido;
+    }
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
+showArticles(CART_INFO_URL);
 });
