@@ -2,10 +2,12 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <meta name="google-singin-client_id" content="">
     <title>eMercado - Inicia sesion</title>
+    <meta name="google-singin-client_id" content="303931968513-m6ifqe5isj9on4d6lquqn426mia6181d.apps.googleusercontent.com">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <script src="js/localStorage.js"></script> 
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
 <body class="login">
     <div class="login-caja">
@@ -16,12 +18,10 @@
         <input type="text" name="usuario" id="usuario" placeholder="Escriba aqui su usario de eMercado" required>
         <p>Contraseña</p>
         <input type="password" name="contraseña" placeholder="Escriba aqui su contraseña de eMercado" required>
-        <div class="g-signin2" data-onsuccess="siniciarSesion"></div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <input type="submit" name="boton" value="Iniciar Sesión" onclick="guardarDatos()"/>
       </form>
     </div>
-    <script src="js/localStorage.js"></script> 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
     function iniciarSesion(googleUser){
       var perfil= googleUser.getBasicProfile();
@@ -31,7 +31,7 @@
       console.log("Email"+ perfil.getEmail());
       var auth2 = gapi.auth2.getAuthInstance();
       if (auth2.isSignedIn.Ab === true){
-        window.location.href = "http://";
+        window.location.href = "https://github.com/Andreaghoppe91";
       }
       let usuario = perfil.getEmail();
       sessionStorage.setItem("usuario", usuario);
