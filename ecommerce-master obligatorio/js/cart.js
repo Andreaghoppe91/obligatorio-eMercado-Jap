@@ -1,5 +1,7 @@
 let productUnitCost = 0;
 let productCurrency = "";
+let MONEY_SYMBOL = "$";
+let PERCENTAGE_SYMBOL = '%';
 let subtotal = 0;
 let shippingPercentage = 0.15;
 let total = 0;
@@ -9,11 +11,30 @@ const BANKING_PAYMENT = "Transferencia bancaria";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
 //Función que se utiliza para actualizar los costos de publicación
-function updateTotalCosts(){
-
+function updateSubtotal(){
+    let costoTotalDeUnidades = document.getElementById("costo");
+    costoTotalDeUnidades.innerHTML = Math.round(productUnitCost * 100);
 }
 
-function updateSubtotal(){
+function showArticles(array){
+    let contenido = "";
+    
+    for(let i = 0; i < array.length; i++){
+        let articles = array[i];
+        contenido += `
+        <tr>
+        <td><img src="`+ articles.src + `" width="45px"></td>
+        <td>`+ articles.name +`</td>
+        <td>`+ articles.currency +`</td>
+        <td><input type="number" id="productCantInput" value="1" min="1"></td>
+        <td id="costo" ></td>
+        <tr>
+        `
+        document.getElementById("tablaCart").innerHTML = contenido;
+    }
+}
+
+function updateTotalCosts(){
 
 }
 
@@ -25,24 +46,16 @@ function hidePaymentTypeNotSelected(){
 
 }
 
-function showArticles(articles){
-    let contenido = "";
-    for(let i = 0; i < articles.length; i++){
-        let articles = articles[i];
-        contenido += `
-            <td><img src="img/tree1.jpg" width="75px"></td>
-            <td>`+ array.articles.name +`</td>
-            <td>`+ articles.articles.count +`</td>
-            <td>100</td>
-            <td>uyu</td>
-        `
-        document.getElementById("tablaCart").innerHTML = contenido;
-    }
-}
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-showArticles(CART_INFO_URL);
+    document.getElementById("productCantInput").addEventListener("change", function(){
+        productUnitCost = this.value;
+        updateSubtotal();
+    });
+    getJSONData(CART_INFO_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {   
+            carrito = resultObj.data;
+            showArticles(carrito.articles);
+        }
+});
 });
