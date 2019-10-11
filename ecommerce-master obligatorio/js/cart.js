@@ -3,6 +3,7 @@ let productCurrency = "";
 let MONEY_SYMBOL = "$";
 let PERCENTAGE_SYMBOL = '%';
 let subtotal = 0;
+let cantidadSeleccionada = "";
 let shippingPercentage = 0.15;
 let total = 0;
 let paymentTypeSelected = false;
@@ -11,9 +12,11 @@ const BANKING_PAYMENT = "Transferencia bancaria";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
 //Función que se utiliza para actualizar los costos de publicación
-function updateSubtotal(){
-    let costoTotalDeUnidades = document.getElementById("costo");
-    costoTotalDeUnidades.innerHTML = Math.round(productUnitCost * 100);
+function updateSubtotal(precioUnitario){
+    let cantidad = document.getElementById("productCantInput").value;
+    let subTotal = precioUnitario * cantidad;
+    document.getElementById("subtotal").innerHTML = subTotal;
+
 }
 
 function showArticles(array){
@@ -26,11 +29,19 @@ function showArticles(array){
         <td><img src="`+ articles.src + `" width="45px"></td>
         <td>`+ articles.name +`</td>
         <td>`+ articles.currency +`</td>
-        <td><input type="number" id="productCantInput" value="1" min="1"></td>
-        <td id="costo" ></td>
-        <tr>
+        <td>`+ articles.unitCost +`</td>
+        <td><input type="number" name="cantidad" id="productCantInput" value="1" min="1"></td>
+        <td id="subtotal"></td>
+        </tr>
         `
         document.getElementById("tablaCart").innerHTML = contenido;
+
+        
+    precioUnitario = articles.unitCost;
+    updateSubtotal(precioUnitario);
+    document.getElementById("productCantInput").addEventListener("change", function(){
+        updateSubtotal(precioUnitario);
+    });
     }
 }
 
@@ -47,10 +58,6 @@ function hidePaymentTypeNotSelected(){
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
-    document.getElementById("productCantInput").addEventListener("change", function(){
-        productUnitCost = this.value;
-        updateSubtotal();
-    });
     getJSONData(CART_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {   
