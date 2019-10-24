@@ -12,6 +12,19 @@ const BANKING_PAYMENT = "Transferencia bancaria";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
 //Función que se utiliza para actualizar los costos de publicación
+
+function updateTotalCosts(){
+    let precioProdSelect = document.getElementById("precioproduct");
+    let comissionEnvio = document.getElementById("comisionEnvio");
+    let totalCost = document.getElementById("costototal");
+
+    precioProdSelect.innerHTML = MONEY_SYMBOL + productUnitCost;
+    comissionEnvio.innerHTML = Math.round((comissionPercentage * 100)) + PERCENTAGE_SYMBOL;
+    totalCost = MONEY_SYMBOL + (Math.round(productUnitCost * comissionPercentage * 100) / 100);
+    
+    document.getElementById("precioproduct").innerHTML = subTotal;
+}
+
 function updateSubtotal(precioUnitario){
     let cantidad = document.getElementById("productCantInput").value;
     let subTotal = precioUnitario * cantidad;
@@ -30,7 +43,7 @@ function showArticles(array){
         <td>`+ articles.name +`</td>
         <td>`+ articles.currency +`</td>
         <td>`+ articles.unitCost +`</td>
-        <td><input type="number" name="cantidad" id="productCantInput" value="1" min="1"></td>
+        <td><input type="number" name="cantidad" id="productCantInput" value="`+articles.count +`" min="1"></td>
         <td id="subtotal"></td>
         </tr>
         `
