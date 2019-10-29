@@ -25,7 +25,7 @@ function showArticles(array){
     let contenido = "";
     
     for(let i = 0; i < array.length; i++){
-        let articles = array[i];
+     articles = array[i];
         contenido += `
         <tr>
         <td><img src="`+ articles.src + `" width="45px"></td>
@@ -70,24 +70,24 @@ document.addEventListener("DOMContentLoaded", function(e){
             updateTotalCosts();
         }
         
-    document.getElementById("productCantInput").addEventListener("change", function(){
-        cantidadSeleccionada = this.value;
-        updateTotalCosts();
-    });
-
-    document.getElementById("radioexp").addEventListener("change", function(){
-        shippingPercentage = 0.07;
-        updateTotalCosts();
-    });
+        document.getElementById("productCantInput").addEventListener("change", function(){
+            cantidadSeleccionada = this.value;
+            updateTotalCosts();
+        });a
     
-    document.getElementById("radioprem").addEventListener("change", function(){
-        shippingPercentage = 0.15;
-        updateTotalCosts();
+        document.getElementById("radioexp").addEventListener("change", function(){
+            shippingPercentage = 0.07;
+            updateTotalCosts();
+        });
+        
+        document.getElementById("radioprem").addEventListener("change", function(){
+            shippingPercentage = 0.15;
+            updateTotalCosts();
+        });
+        
+        document.getElementById("radiostand").addEventListener("change", function(){
+            shippingPercentage = 0.05;
+            updateTotalCosts();
+        });
     });
-    
-    document.getElementById("radiostand").addEventListener("change", function(){
-        shippingPercentage = 0.05;
-        updateTotalCosts();
-    });
-});
 });
