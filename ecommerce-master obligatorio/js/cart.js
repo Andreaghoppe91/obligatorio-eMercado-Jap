@@ -1,9 +1,9 @@
 let productUnitCost = 0;
 let productCurrency = "";
 let MONEY_SYMBOL = "$";
-let subtotal = 0;
+let subTotal = 0;
 let PERCENTAGE_SYMBOL = '%';
-let cantidadSeleccionada = "";
+let cantidadSeleccionada = 0;
 let shippingPercentage = 0.15;
 let total = 0;
 let paymentTypeSelected = false;
@@ -18,6 +18,7 @@ function updateSubtotal(precioUnitario){
     let cantidad = document.getElementById("productCantInput").value;
     let subTotal = precioUnitario * cantidad;
     document.getElementById("subtotal").innerHTML = subTotal;
+    document.getElementById("precioproduct").innerHTML = subTotal;
 
 }
 
@@ -38,19 +39,21 @@ function showArticles(array){
         `
         document.getElementById("tablaCart").innerHTML = contenido;
 
-        
-    precioUnitario = articles.unitCost;
-    updateSubtotal(precioUnitario);
+        precioUnitario = articles.unitCost;
+        updateSubtotal(precioUnitario);
+        document.getElementById("productCantInput").addEventListener("change", function(){
+            updateSubtotal(precioUnitario);
+            updateTotalCosts();
+        });
+        }
     }
-}
 function updateTotalCosts(){
-    let precioProdSelect = document.getElementById("precioproduct");
     let comissionEnvio = document.getElementById("comisionEnvio");
     let total = document.getElementById("costototal");
 
-    precioProdSelect.innerHTML = MONEY_SYMBOL + cantidadSeleccionada * 100;
-    comissionEnvio.innerHTML = Math.round((shippingPercentage * 100)) + PERCENTAGE_SYMBOL;
-    total.innerHTML = MONEY_SYMBOL + (Math.round(cantidadSeleccionada * shippingPercentage * 100)+ (cantidadSeleccionada * 100));
+    
+    comissionEnvio.innerHTML = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage * 100));
+    total.innerHTML = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage * 100)+ (subTotal * 100));
 }
 
 function showPaymentTypeNotSelected(){
@@ -67,13 +70,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         {   
             carrito = resultObj.data;
             showArticles(carrito.articles);
-            updateTotalCosts();
+            
         }
         
-        document.getElementById("productCantInput").addEventListener("change", function(){
-            cantidadSeleccionada = this.value;
-            updateTotalCosts();
-        });a
     
         document.getElementById("radioexp").addEventListener("change", function(){
             shippingPercentage = 0.07;
