@@ -1,7 +1,6 @@
 let productUnitCost = 0;
 let productCurrency = "";
 let MONEY_SYMBOL = "$";
-let subTotal = 0;
 let PERCENTAGE_SYMBOL = '%';
 let cantidadSeleccionada = 0;
 let shippingPercentage = 0.15;
@@ -18,7 +17,12 @@ function updateSubtotal(precioUnitario){
     let cantidad = document.getElementById("productCantInput").value;
     let subTotal = precioUnitario * cantidad;
     document.getElementById("subtotal").innerHTML = subTotal;
+
+}
+function updateTotalCosts(){
     document.getElementById("precioproduct").innerHTML = subTotal;
+    document.getElementById("comisionEnvio").innerHTML = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage));
+    document.getElementById("costototal").innerHTML  = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage)+ (subTotal));
 
 }
 
@@ -43,17 +47,16 @@ function showArticles(array){
         updateSubtotal(precioUnitario);
         document.getElementById("productCantInput").addEventListener("change", function(){
             updateSubtotal(precioUnitario);
-            updateTotalCosts();
         });
         }
     }
 function updateTotalCosts(){
-    let comissionEnvio = document.getElementById("comisionEnvio");
-    let total = document.getElementById("costototal");
+    let cantidad = document.getElementById("productCantInput").value;
+    let subTotal = precioUnitario * cantidad;
+    document.getElementById("precioproduct").innerHTML = subTotal;
+    document.getElementById("comisionEnvio").innerHTML = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage));
+    document.getElementById("costototal").innerHTML  = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage)+ (subTotal));
 
-    
-    comissionEnvio.innerHTML = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage * 100));
-    total.innerHTML = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage * 100)+ (subTotal * 100));
 }
 
 function showPaymentTypeNotSelected(){
@@ -70,7 +73,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         {   
             carrito = resultObj.data;
             showArticles(carrito.articles);
-            
+            updateSubtotal(precioUnitario);
+            updateTotalCosts();
         }
         
     
