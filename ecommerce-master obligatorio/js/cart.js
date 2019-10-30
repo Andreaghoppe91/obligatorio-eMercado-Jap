@@ -4,6 +4,7 @@ let MONEY_SYMBOL = "$";
 let PERCENTAGE_SYMBOL = '%';
 let cantidadSeleccionada = 0;
 let shippingPercentage = 0.15;
+let subTotal = 0;
 let total = 0;
 let paymentTypeSelected = false;
 const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
@@ -52,11 +53,13 @@ function showArticles(array){
     }
 function updateTotalCosts(){
     let cantidad = document.getElementById("productCantInput").value;
-    let subTotal = precioUnitario * cantidad;
-    document.getElementById("precioproduct").innerHTML = subTotal;
-    document.getElementById("comisionEnvio").innerHTML = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage));
-    document.getElementById("costototal").innerHTML  = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage)+ (subTotal));
-
+    let subtotal = precioUnitario * cantidad;
+    document.getElementById("precioproduct").innerHTML = subtotal;
+    document.getElementById("comisionEnvio").innerHTML = MONEY_SYMBOL + (Math.round(subtotal * shippingPercentage));
+    document.getElementById("costototal").innerHTML  = MONEY_SYMBOL + (Math.round(subtotal * shippingPercentage)+ (subtotal));
+    document.getElementById("productCantInput").addEventListener("change", function(){
+       updateTotalCosts();
+    });
 }
 
 function showPaymentTypeNotSelected(){
