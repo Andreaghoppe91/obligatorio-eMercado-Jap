@@ -96,4 +96,54 @@ document.addEventListener("DOMContentLoaded", function(e){
             updateTotalCosts();
         });
     });
+
+var infocart = document.getElementById("cart-info");
+infocart.addEventListener("submit", function(e){
+
+    let calle = document.getElementById("calle");
+    let numero = document.getElementById("numero-calle");
+    let pais = document.getElementById("pais");
+    let infoMissing = false;
+
+    calle.classList.remove('is-invalid');
+    numero.classList.remove('is-invalid');
+    pais.classList.remove('is-invalid');
+
+    if (calle.value === "")
+    {
+        productNameInput.classList.add('is-invalid');
+        infoMissing = true;
+    }
+
+    if (numero.value <=0)
+    {
+        productNameInput.classList.add('is-invalid');
+        infoMissing = true;
+    }
+
+    if (pais.value === "")
+    {
+        productNameInput.classList.add('is-invalid');
+        infoMissing = true;
+    }
+
+    if(!infoMissing)
+        {getJSONData(CART_BUY_URL).then(function(resultObj){
+                let msgToShow = "";
+                if (resultObj.status === 'ok')
+                {
+                    msgToShow = resultObj.data.msg;
+                }
+                else if (resultObj.status === 'error')
+                {
+                    msgToShow = ERROR_MSG;
+                }
+
+                bootbox.alert(msgToShow, null);
+            });
+        }
+
+        if (e.preventDefault) e.preventDefault();
+        return false;
+});
 });

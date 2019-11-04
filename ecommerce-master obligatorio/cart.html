@@ -97,31 +97,31 @@
             <div class="col-md-8 order-md-1">
               <h4 class="mb-3">Información de envío</h4>
               <h5 class="mb-3">Dirección:</h5>
-              <form class="needs-validation">
+              <form class="needs-validation" id="cart-info">
                  <div class="row">
                    <div class="col-md-3 mb-2">
                      <label for="productName">Calle</label>
-                       <input type="text" class="form-control" >
+                       <input type="text" class="form-control" id="calle">
                          <div class="invalid-feedback">
-                          Ingresa una calle
+                          Ingresa una calle valida
                         </div>
                            </div>
                               <div class="col-md-2 mb-3">
                                 <label for="productName">Numero</label>
-                                   <input type="text" class="form-control" >
+                                   <input type="text" class="form-control" id="numero-calle">
                                      <div class="invalid-feedback">
-                                      Ingresa un numero
+                                      Ingresa un numero valido
                                      </div>
                                </div>
                                <div class="col-md-3 mb-3">
                                   <label for="productName">Esquina</label>
-                                  <input type="text" class="form-control" >
+                                  <input type="text" class="form-control">
                                </div>
                 </div>  
                    <div class="row">
                      <div class="col-md-7 mb-3">
                        <label for="state">País</label>
-                         <select class="custom-select d-block w-100">
+                         <select class="custom-select d-block w-100" id="pais">
                             <option value="">Elija un país...</option>
                             <option>Uruguay</option>
                            <option>Argentina</option>
