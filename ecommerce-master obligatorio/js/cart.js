@@ -54,7 +54,7 @@ function showArticles(array){
 function updateTotalCosts(){
     let cantidad = document.getElementById("productCantInput").value;
     let subtotal = precioUnitario * cantidad;
-    document.getElementById("precioproduct").innerHTML = subtotal;
+    document.getElementById("precioproduct").innerHTML =  MONEY_SYMBOL + subtotal;
     document.getElementById("comisionEnvio").innerHTML = MONEY_SYMBOL + (Math.round(subtotal * shippingPercentage));
     document.getElementById("costototal").innerHTML  = MONEY_SYMBOL + (Math.round(subtotal * shippingPercentage)+ (subtotal));
     document.getElementById("productCantInput").addEventListener("change", function(){
@@ -63,12 +63,19 @@ function updateTotalCosts(){
 }
 
 function ocultarTransferencia(){
-    document.getElementById("transferenciaB").disabled = true;
+    document.getElementById("bankAccountNumber").disabled = true;
+    document.getElementById("creditCardNumber").disabled = false;
+    document.getElementById("creditCardSecurityCode").disabled = false;
+    document.getElementById("dueDate").disabled = false;
 }
 
 function ocultartarjeta(){
     
-    document.getElementById("tarjeta").disabled = true;
+    document.getElementById("creditCardNumber").disabled = true;
+    document.getElementById("creditCardSecurityCode").disabled = true;
+    document.getElementById("dueDate").disabled = true;
+    document.getElementById("bankAccountNumber").disabled = false;
+    
 
 }
 
