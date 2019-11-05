@@ -62,11 +62,13 @@ function updateTotalCosts(){
     });
 }
 
-function showPaymentTypeNotSelected(){
-
+function ocultarTransferencia(){
+    document.getElementById("transferenciaB").disabled = true;
 }
 
-function hidePaymentTypeNotSelected(){
+function ocultartarjeta(){
+    
+    document.getElementById("tarjeta").disabled = true;
 
 }
 
@@ -103,27 +105,35 @@ infocart.addEventListener("submit", function(e){
     let calle = document.getElementById("calle");
     let numero = document.getElementById("numero-calle");
     let pais = document.getElementById("pais");
+    let esquina = document.getElementById("esquina");
     let infoMissing = false;
 
     calle.classList.remove('is-invalid');
     numero.classList.remove('is-invalid');
     pais.classList.remove('is-invalid');
+    esquina.classList.remove('is-invalid');
 
     if (calle.value === "")
     {
-        productNameInput.classList.add('is-invalid');
+        calle.classList.add('is-invalid');
         infoMissing = true;
     }
 
     if (numero.value <=0)
     {
-        productNameInput.classList.add('is-invalid');
+        numero.classList.add('is-invalid');
         infoMissing = true;
     }
 
     if (pais.value === "")
     {
-        productNameInput.classList.add('is-invalid');
+        pais.classList.add('is-invalid');
+        infoMissing = true;
+    }
+
+    if (esquina.value === "")
+    {
+        esquina.classList.add('is-invalid');
         infoMissing = true;
     }
 

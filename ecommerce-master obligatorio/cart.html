@@ -100,22 +100,25 @@
               <form class="needs-validation" id="cart-info">
                  <div class="row">
                    <div class="col-md-3 mb-2">
-                     <label for="productName">Calle</label>
+                     <label for="calle">Calle</label>
                        <input type="text" class="form-control" id="calle">
                          <div class="invalid-feedback">
                           Ingresa una calle valida
                         </div>
                            </div>
                               <div class="col-md-2 mb-3">
-                                <label for="productName">Numero</label>
+                                <label for="numero-calle">Numero</label>
                                    <input type="text" class="form-control" id="numero-calle">
                                      <div class="invalid-feedback">
                                       Ingresa un numero valido
                                      </div>
                                </div>
                                <div class="col-md-3 mb-3">
-                                  <label for="productName">Esquina</label>
-                                  <input type="text" class="form-control">
+                                  <label for="esquina">Esquina</label>
+                                  <input type="text" class="form-control" id="esquina">
+                                  <div class="invalid-feedback">
+                                    Ingresa una esquina valida
+                                   </div>
                                </div>
                 </div>  
                    <div class="row">
@@ -197,7 +200,7 @@
               <div class="container">
                   <div class="row">
                     <div class="custom-control custom-radio">
-                      <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">
+                      <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input" id="tarjeta" onclick="ocultarTransferencia()">
                       <label class="custom-control-label" for="creditCardPaymentRadio">Tarjeta de crédito</label>
                     </div>
                   </div>
@@ -229,7 +232,7 @@
                   </div>
                   <div class="row">
                     <div class="custom-control custom-radio">
-                      <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
+                      <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input" id="transferenciaB" onclick="ocultartarjeta()">
                       <label class="custom-control-label" for="bankingRadio">Transferencia bancaria</label>
                     </div>
                   </div>
