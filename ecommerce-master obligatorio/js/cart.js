@@ -18,14 +18,8 @@ function updateSubtotal(precioUnitario){
     let cantidad = document.getElementById("productCantInput").value;
     let subTotal = precioUnitario * cantidad;
     document.getElementById("subtotal").innerHTML = subTotal;
-
 }
-function updateTotalCosts(){
-    document.getElementById("precioproduct").innerHTML = subTotal;
-    document.getElementById("comisionEnvio").innerHTML = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage));
-    document.getElementById("costototal").innerHTML  = MONEY_SYMBOL + (Math.round(subTotal * shippingPercentage)+ (subTotal));
 
-}
 
 function showArticles(array){
     let contenido = "";
@@ -70,13 +64,11 @@ function ocultarTransferencia(){
 }
 
 function ocultartarjeta(){
-    
+
     document.getElementById("creditCardNumber").disabled = true;
     document.getElementById("creditCardSecurityCode").disabled = true;
     document.getElementById("dueDate").disabled = true;
     document.getElementById("bankAccountNumber").disabled = false;
-    
-
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
