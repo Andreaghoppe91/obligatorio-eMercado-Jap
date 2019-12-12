@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <title>eMercado - Todo lo que busques está aquí</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/dropzone.css" rel="stylesheet">
+  </head>
+  <body>
+      <nav class="navbar navbar-dark navbar-expand-lg site-header   sticky-top py-1 bg-dark">
+          <div class="container">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="categories.html">Categorías</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="products.html">Productos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="sell.html">Vender</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="cart.html">Mi carrito</a>
+                  </li>
+                  <li class="nav-item">
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="nombre" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                          <button class="dropdown-item" type="button" onclick="location.href='cart.html'">Ver mi carrito</button>
+                          <button class="dropdown-item" type="button" onclick="location.href='login.html'">Cerrar sesión</button>
+                        </div>
+                      </div>
+                  </li>
+                  </ul>
+              </div>
+          </div>
+        </nav>
+    <main role="main">
+        <div class="container">
+            <div class="text-center p-4">
+                <h2>Carrito</h2>
+            </div>
+            <div class="row justify-content-md-center">
+                <div>
+                    <h4>Información de los productos</h4>
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                              <th>Imagen</th>
+                              <th>Articulo</th>
+                              <th>Moneda</th>
+                              <th>Costo Unitario</th>
+                              <th>Cantidad</th>
+                              <th>Subtotal</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tablaCart">
+                        </tbody>
+                     </table>
+               </div>
+            </div>      
+            <hr class="mb-4">
+          <div class="row justify-content-md-center">
+            <div class="col-md-8 order-md-1">
+              <h4 class="mb-3">Información de envío</h4>
+              <h5 class="mb-3">Dirección:</h5>
+              <form class="needs-validation" id="cart-info">
+                 <div class="row">
+                   <div class="col-md-3 mb-2">
+                     <label for="calle">Calle</label>
+                       <input type="text" class="form-control" id="calle">
+                         <div class="invalid-feedback">
+                          Ingresa una calle valida
+                        </div>
+                           </div>
+                              <div class="col-md-2 mb-3">
+                                <label for="numero-calle">Numero</label>
+                                   <input type="text" class="form-control" id="numero-calle">
+                                     <div class="invalid-feedback">
+                                      Ingresa un numero valido
+                                     </div>
+                               </div>
+                               <div class="col-md-3 mb-3">
+                                  <label for="esquina">Esquina</label>
+                                  <input type="text" class="form-control" id="esquina">
+                                  <div class="invalid-feedback">
+                                    Ingresa una esquina valida
+                                   </div>
+                               </div>
+                </div>  
+                   <div class="row">
+                     <div class="col-md-7 mb-3">
+                       <label for="state">País</label>
+                         <select class="custom-select d-block w-100" id="pais">
+                            <option value="">Elija un país...</option>
+                            <option>Uruguay</option>
+                           <option>Argentina</option>
+                            <option>Chile</option>
+                            <option>Mexico</option>
+                            <option>Brasil</option>
+                            <option>EE.UU</option>
+                          </select>
+                     <div class="invalid-feedback">
+                     Por favor ingresa un país valido.
+                     </div>
+                   </div>
+                </div>
+                 <hr class="mb-4">
+                   <h5 class="mb-3">Tipo de envío</h5>
+                      <div class="d-block my-3">
+                        <div class="custom-control custom-radio">
+                           <input id="radioprem" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+                           <label class="custom-control-label" for="radioprem">Premium (2-5 dias) - Costo: 15%</label>
+                         </div>
+                         <div class="custom-control custom-radio">
+                          <input id="radioexp" name="publicationType" type="radio" class="custom-control-input" required="">
+                           <label class="custom-control-label" for="radioexp">Express (5-8 dias) - Costo: 7%</label>
+                         </div>
+                         <div class="custom-control custom-radio">
+                          <input id="radiostand" name="publicationType" type="radio" class="custom-control-input" required="">
+                          <label class="custom-control-label" for="radiostand">Standard (12-15 dias) - costo: 5%</label>                          </div>
+                        <div class="row">
+                           <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Forma de pago</button>
+                        </div>
+                       </div>
+                      <hr class="mb-4">
+                       <h4 class="mb-3">Costo total:</h4>
+                      <ul class="list-group mb-3">
+                           <li class="list-group-item d-flex justify-content-between lh-condensed">
+                             <div>
+                               <h6 class="my-0">Precio</h6>
+                              <small class="text-muted">precio de los productos seleccionados</small>
+                             </div>
+                            <span class="text-muted" id="precioproduct">-</span>
+                           </li>
+                           <li class="list-group-item d-flex justify-content-between lh-condensed">
+                             <div>
+                              <h6 class="my-0">Porcentaje</h6>
+                               <small class="text-muted">Según el tipo de envio</small>
+                             </div>
+                            <span class="text-muted" id="comisionEnvio">-</span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between">
+                            <span>Total ($)</span>
+                             <strong id="costototal">-</strong>
+                          </li>
+                        </ul>
+                         <hr class="mb-4">
+                        <button class="btn btn-primary btn-lg" type="submit">Comprar</button>
+                       </form>
+                    </div>
+                  </div>
+                 </div>
+
+                    
+    
+          <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Forma de pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                  <div class="row">
+                    <div class="custom-control custom-radio">
+                      <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input" id="tarjeta" onclick="ocultarTransferencia();">
+                      <label class="custom-control-label" for="creditCardPaymentRadio">Tarjeta de crédito</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="shippingStreet">Número de tarjeta</label>
+                      <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="" >
+                      <div class="invalid-feedback">
+                        Ingresa un número de tarjeta
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="shippingStreetNumber">Código de seg.</label>
+                      <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" >
+                      <div class="invalid-feedback">
+                        Ingresa el código de seguridad
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="dueDate">Vencimiento (MM/AA)</label>
+                        <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
+                        <div class="invalid-feedback">
+                          Ingresa la fecha de vencimiento
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="custom-control custom-radio">
+                      <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input" id="transferenciaB" onclick="ocultartarjeta();">
+                      <label class="custom-control-label" for="bankingRadio">Transferencia bancaria</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="bankAccountNumber">Número de cuenta</label>
+                      <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
+                      <div class="invalid-feedback">
+                        Ingresa un número de cuenta
+                      </div>
+                    </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+      </div>
+    </main>
+      <footer class="text-muted">
+        <div class="container">
+            <p>Este sitio forma parte de Programación Aplicada - JAP</p>
+            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+        </div>
+      </footer>
+      <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+      <script src="js/vendor/jquery-3.4.1.min.js"></script>
+      <script src="js/vendor/bootstrap.bundle.min.js"></script>
+      <script src="js/vendor/bootbox.min.js"></script>
+      <script src="js/init.js"></script>
+      <script src="js/cart.js"></script>
+    <script src="js/localStorage.js"></script> 
+    </body>
+</html>
